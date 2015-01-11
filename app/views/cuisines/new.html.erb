@@ -1,0 +1,13 @@
+<h2>Add new!</h2>
+
+<%= form_for @cuisine do |f| %>
+  <div class='form-group'>
+    <%= f.text_field :name, :placeholder => 'Cuisine type' %>
+  </div>
+  <div class='form-group'>
+    <%= f.text_area :recipe, class: 'text-area', :placeholder => 'What are your favorite recipes from this region?' %>
+  </div>
+  <p>
+    <%= f.submit class: 'btn btn-primary' %>
+  </p>
+<% end %>

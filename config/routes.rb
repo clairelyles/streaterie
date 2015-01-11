@@ -3,13 +3,13 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'streateries#index'
+  root 'cuisines#index'
 
   # home controller with action index!
   # "steateries#steaterie" --> eateries = plural controller, #eaterie = action for the controller to display the eaterie.html.erb file!
   # get 'streateries' => 'streateries#index'
 
-  resources :streateries
+  resources :cuisines
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

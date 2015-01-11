@@ -12,7 +12,7 @@
 <body>
 <div class='container'>
 <h1>Streaterie</h1>
-<p><a href='/'>Home</a> | <a href='streateries/new'>Add a Cuisine</a> | <a href='/google'>Google</a></p>
+<p><%= link_to 'Home', root_path %> | <%= link_to 'Add a Cuisine', new_cuisine_path %> | <a href='/google'>Google</a></p>
 <hr />
 
   <%= yield %>

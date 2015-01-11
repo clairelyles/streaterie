@@ -1,0 +1,22 @@
+
+<h2>Welcome to Nomland</h2>
+<p>Begin your food truck search by clicking cuisine below.</p>
+<p>Don't see what you want? Click "add new cuisine" to include youre favorite.</p>
+<br>
+<table class='table'>
+  <tr>
+    <td><b>Cuisine</b></td>
+    <td><b>Favorite Recipies</b></td>
+    <td><b>View</b></td>
+    <td><b>Remove</b></td>
+  </tr>
+  <% @cuisines.each do |cuisine| %>
+  <tr>
+    <td><%= cuisine.name %></td>
+    <td><%= cuisine.recipe %></td>
+    <td><%= link_to 'Photos', cuisine, :class => 'btn btn-primary btn-xs' %></td>
+    <td class='text-center'><span class='glyphicon glyphicon-remove'></span></td>
+  <tr>
+  <% end %>
+  </tr>
+</table>
