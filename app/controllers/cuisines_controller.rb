@@ -2,6 +2,14 @@ class CuisinesController < ApplicationController
 
   def index
     @cuisines = Cuisine.all
+
+    @search = @cuisines.name
+    @list = flickr.photos.search :text => @search+" "+"street food", :sort => "relevance"
+    # render json:list
+
+    @results = @list.map do |photo|
+      FlickRaw.url_q(photo)
+    end
   end
 
   def new

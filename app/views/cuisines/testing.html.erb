@@ -1,0 +1,12 @@
+<div class='row'>
+<% @cuisines.each do |cuisine| %>
+  <div class='col-xs-3 col-md-3'>
+    <td><%= cuisine.name %></td><br>
+    <td><%= cuisine.recipe %></td>
+    <td><% @results.each do |photo| %>
+          <%= image_tag(photo.first) %>
+        <% end %></td>
+  </div>
+<% end %>
+</div>
+
