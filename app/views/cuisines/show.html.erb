@@ -1,0 +1,11 @@
+<h2>Selected Cuisine</h2>
+<h3><strong>Name:</strong><%= @cuisine.name %></h3>
+<h3><strong>Related Recipies:</strong><%= @cuisine.recipe %></h3>
+<br />
+<br>
+<div class='text-center'>
+  <% @results.each do |photo| %>
+      <%= image_tag photo %>
+  <% end %>
+</div>
+

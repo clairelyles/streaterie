@@ -29,6 +29,13 @@ h2 {
   color: #202a30;
 }
 
+h3 {
+  font-family: 'Fredoka One', serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: #202a30;
+}
+
 body {
   font-family: 'Open Sans', serif;
   font-size: 16px;
@@ -37,4 +44,8 @@ body {
 .text-area {
   height: 15vh;
   width: 40vw;
+}
+
+.food_img {
+
 }

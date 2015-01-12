@@ -15,7 +15,7 @@
     <td><%= cuisine.name %></td>
     <td><%= cuisine.recipe %></td>
     <td><%= link_to 'Photos', cuisine, :class => 'btn btn-primary btn-xs' %></td>
-    <td class='text-center'><span class='glyphicon glyphicon-remove'></span></td>
+    <td class='text-center'><%= link_to '', cuisine_path(cuisine), method: :delete, data: { confirm: 'Are you sure you want to delete this item?' }, :class => 'glyphicon glyphicon-remove' %></td>
   <tr>
   <% end %>
   </tr>
