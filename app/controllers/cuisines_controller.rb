@@ -3,6 +3,7 @@ class CuisinesController < ApplicationController
   def index
     @cuisines = Cuisine.all
     # render json:@photo
+    # flash[:notice] = "Welcome to the page"
   end
 
   def new
@@ -10,18 +11,12 @@ class CuisinesController < ApplicationController
   end
 
   def create
-    # render json:params
 
     @cuisine = Cuisine.new
     @cuisine.name = params[:cuisine][:name]
     @cuisine.recipe = params[:cuisine][:recipe]
-
-    # list = flickr.photos.search :text => @cuisine.name+' '+'street food', :sort => 'relevance'
-    # # render json:list
-
-    # @results = list.each do |photo|
-    #   FlickRaw.url_q(photo).first
-    # end
+    list = flickr.photos.search :text => @cuisine.name+' '+'street food', :sort => 'relevance'
+    @cuisine.url = FlickRaw.url_q(list[0])
 
     if @cuisine.save
       # flash is a variable and you are adding a value "string" to it
@@ -62,6 +57,7 @@ class CuisinesController < ApplicationController
       [FlickRaw.url_q(photo),
       FlickRaw.url_c(photo)]
     end
+
   end
 
   def destroy

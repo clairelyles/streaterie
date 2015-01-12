@@ -1,12 +1,21 @@
-<div class='row'>
-<% @cuisines.each do |cuisine| %>
-  <div class='col-xs-3 col-md-3'>
-    <td><%= cuisine.name %></td><br>
+<table class='table'>
+  <tr>
+    <td><b>Cuisine</b></td>
+    <td><b>Favorite Recipies</b></td>
+    <td><b>View</b></td>
+    <td><b>Remove</b></td>
+    <td><b>Edit</b></td>
+  </tr>
+  <% @cuisines.each do |cuisine| %>
+  <tr>
+    <td><%= cuisine.name %></td>
     <td><%= cuisine.recipe %></td>
-    <td><% @results.each do |photo| %>
-          <%= image_tag(photo.first) %>
-        <% end %></td>
-  </div>
-<% end %>
-</div>
+    <td class='text-center'><%= link_to '', cuisine, :class => 'glyphicon glyphicon-camera' %></td>
+    <td class='text-center'><%= link_to '', cuisine_path(cuisine), method: :delete, data: { confirm: 'Are you sure you want to delete this item?' }, :class => 'glyphicon glyphicon-remove' %></td>
+    <td class='text-center'><%= link_to '', edit_cuisine_path(cuisine), :class => 'glyphicon glyphicon-pencil' %></td>
+
+  <tr>
+  <% end %>
+  </tr>
+</table>
 
