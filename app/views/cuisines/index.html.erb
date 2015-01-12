@@ -10,6 +10,12 @@
   </div>
 </div>
 <br>
+<% if flash.any? %>
+  <% flash.each do |key,message| %>
+    <div class='alert alert-<%= key %>'><%= message %></div>
+    <br>
+  <% end %>
+<% end %>
 <table class='table'>
   <tr>
     <td><b>Cuisine</b></td>

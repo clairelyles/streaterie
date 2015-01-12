@@ -15,10 +15,20 @@ class CuisinesController < ApplicationController
     @cuisine = Cuisine.new
     @cuisine.name = params[:cuisine][:name]
     @cuisine.recipe = params[:cuisine][:recipe]
+
+    # list = flickr.photos.search :text => @cuisine.name+' '+'street food', :sort => 'relevance'
+    # # render json:list
+
+    # @results = list.each do |photo|
+    #   FlickRaw.url_q(photo).first
+    # end
+
     if @cuisine.save
+      # flash is a variable and you are adding a value "string" to it
+      flash[:success] = "Your cuisine has been added"
       redirect_to cuisines_path
     else
-      render 'new'
+      render :new
     end
   end
 
@@ -41,9 +51,11 @@ class CuisinesController < ApplicationController
   end
 
   def show
-    @cuisine = Cuisine.find(params[:id])
+    @cuisine = Cuisine.find_by_id(params[:id])
+    not_found unless @cuisine
+
     @search = @cuisine.name
-    @list = flickr.photos.search :text => @search+" "+"street food", :sort => "relevance"
+    @list = flickr.photos.search :text => @search+' '+'street food', :sort => 'relevance'
     # render json:list
 
     @results = @list.map do |photo|
@@ -53,7 +65,7 @@ class CuisinesController < ApplicationController
   end
 
   def destroy
-    @cuisine = Cuisine.find(params[:id])
+    @cuisine = Cuisine.find_by_id(params[:id])
     @cuisine.destroy
 
     redirect_to cuisines_path

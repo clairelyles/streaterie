@@ -9,8 +9,10 @@ Rails.application.routes.draw do
   # "steateries#steaterie" --> eateries = plural controller, #eaterie = action for the controller to display the eaterie.html.erb file!
   # get 'streateries' => 'streateries#index'
 
+  # get 'about-us' => 'home#about' :as :about
+
   resources :cuisines
-  get '*path' => redirect('/404.html')
+  get '*path', to: 'application#not_found'
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
