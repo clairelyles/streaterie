@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   # get 'streateries' => 'streateries#index'
 
   resources :cuisines
-
+  get '*path' => redirect('/404.html')
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 

@@ -21,14 +21,33 @@ class CuisinesController < ApplicationController
     end
   end
 
+  def edit
+    @cuisine = Cuisine.find(params[:id])
+  end
+
+  def update
+    @cuisine = Cuisine.find(params[:id])
+
+    if @cuisine.update(cuisine_params)
+      redirect_to @cuisine
+    else
+      render 'edit'
+    end
+  end
+
+  def cuisine_params
+    params.require(:cuisine).permit(:name, :recipe)
+  end
+
   def show
     @cuisine = Cuisine.find(params[:id])
     @search = @cuisine.name
     @list = flickr.photos.search :text => @search+" "+"street food", :sort => "relevance"
-
     # render json:list
+
     @results = @list.map do |photo|
-      FlickRaw.url_q(photo)
+      [FlickRaw.url_q(photo),
+      FlickRaw.url_c(photo)]
     end
   end
 

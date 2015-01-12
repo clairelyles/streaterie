@@ -1,11 +1,11 @@
-<h2>Selected Cuisine</h2>
-<h3><strong>Name:</strong><%= @cuisine.name %></h3>
-<h3><strong>Related Recipies:</strong><%= @cuisine.recipe %></h3>
-<br />
-<br>
-<div class='text-center'>
-  <% @results.each do |photo| %>
-      <%= image_tag photo %>
-  <% end %>
+<div class='content'>
+  <h2><%= @cuisine.name %> Street Food</h2>
+  <p><strong>Related Recipies:</strong><%= @cuisine.recipe %></p>
+  <br />
+  <div class='text-center'>
+    <% @results.each do |photo| %>
+        <%= link_to image_tag(photo.first), photo.last %>
+    <% end %>
+  </div>
 </div>
 

@@ -1,7 +1,14 @@
 
-<h2>Welcome to Nomland</h2>
-<p>Begin your food truck search by clicking cuisine below.</p>
-<p>Don't see what you want? Click "add new cuisine" to include youre favorite.</p>
+<div class='row top_content'>
+  <div class='col-xs-6 col-md-6'>
+    <h2>Get Your Nom On</h2>
+    <p>Begin your food truck search by clicking a cuisine below.</p>
+    <p>Don't see what you want? Click "add new cuisine" to include youre favorite.</p>
+  </div>
+  <div class='text-center col-xs-6 col-md-6'>
+    <img src='../assets/truck_camera.jpg'>
+  </div>
+</div>
 <br>
 <table class='table'>
   <tr>
@@ -9,14 +16,18 @@
     <td><b>Favorite Recipies</b></td>
     <td><b>View</b></td>
     <td><b>Remove</b></td>
+    <td><b>Edit</b></td>
   </tr>
   <% @cuisines.each do |cuisine| %>
   <tr>
     <td><%= cuisine.name %></td>
     <td><%= cuisine.recipe %></td>
-    <td><%= link_to 'Photos', cuisine, :class => 'btn btn-primary btn-xs' %></td>
+    <td class='text-center'><%= link_to '', cuisine, :class => 'glyphicon glyphicon-camera' %></td>
     <td class='text-center'><%= link_to '', cuisine_path(cuisine), method: :delete, data: { confirm: 'Are you sure you want to delete this item?' }, :class => 'glyphicon glyphicon-remove' %></td>
+    <td class='text-center'><%= link_to '', edit_cuisine_path(cuisine), :class => 'glyphicon glyphicon-pencil' %></td>
+
   <tr>
   <% end %>
   </tr>
 </table>
+
