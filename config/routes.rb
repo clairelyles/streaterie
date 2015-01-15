@@ -11,6 +11,15 @@ Rails.application.routes.draw do
 
   # get 'about-us' => 'home#about' :as :about
 
+  get "signup" => "users#new"
+  post "signup" => "users#create"
+  get "login" => "sessions#new"
+  post "login" => "sessions#create"
+  get "logout" => "sessions#destroy"
+  post "logout" => "sessions#destroy"
+
+  get "cuisines/tag/:tag" => "cuisines#tag", as: :tag
+
   resources :cuisines
   get '*path', to: 'application#not_found'
   # Example of named route that can be invoked with purchase_url(id: product.id)

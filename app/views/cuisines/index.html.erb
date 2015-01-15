@@ -2,8 +2,8 @@
 <div class='row top_content'>
   <div class='col-xs-6 col-md-6'>
     <h2>Get Your Nom On</h2>
-    <p>Begin your food truck search by clicking a cuisine below.</p>
-    <p>Don't see what you want? Click "add new cuisine" to include youre favorite.</p>
+    <p>Begin your food truck search by clicking <span class='glyphicon glyphicon-camera'></span> on a cuisine below.</p>
+    <p>Don't see what you like? Click "Add a Cuisine" to include your favorite.</p>
   </div>
   <div class='text-center col-xs-6 col-md-6'>
     <img src='../assets/truck_camera.jpg'>
@@ -17,7 +17,7 @@
   <div class='col-xs-3 col-md-3 text-center cuisine_content'>
     <h2><%= cuisine.name %></h2>
     <%= image_tag(cuisine.url) %><br>
-    <%= link_to '', cuisine, :class => 'glyphicon glyphicon-camera' %> <%= link_to '', cuisine_path(cuisine), method: :delete, data: { confirm: 'Are you sure you want to delete this item?' }, :class => 'glyphicon glyphicon-remove' %><%= link_to '', edit_cuisine_path(cuisine), :class => 'glyphicon glyphicon-pencil' %>
+    <%= link_to '', cuisine, :class => 'glyphicon glyphicon-camera glyph-index' %> <%= link_to '', cuisine_path(cuisine), method: :delete, data: { confirm: 'Are you sure you want to delete this item?' }, :class => 'glyphicon glyphicon-remove glyph-index' %><%= link_to '', edit_cuisine_path(cuisine), :class => 'glyphicon glyphicon-pencil glyph-index' %>
   </div>
   <% end %>
 </div>

@@ -1,28 +1,21 @@
 <div class='content'>
   <h2>Edit Cuisine</h2>
-  <%= form_for :cuisine, url: cuisine_path(@cuisine), method: :patch do |f| %>
+  <%= bootstrap_form_for :cuisine, url: cuisine_path(@cuisine), method: :patch do |f| %>
     <% if @cuisine.errors.any? %>
-      <div id="error_explanation">
-        <h3>
-        <%= pluralize(@cuisine.errors.count, 'Error') %>
+    <div id="error_explanation">
+    <h3><%= pluralize(@cuisine.errors.count, 'Error') %>
        prohibited this cuisine from being saved:</h3>
-        <ul>
-          <% @cuisine.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div>
+      <ul>
+        <% @cuisine.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
     <% end %>
-
-    <p>
-      <%= f.text_field :name, class: 'text-field', :placeholder => 'Update cuisine name' %><br><br>
+      <%= f.text_field :name, class: 'text-field', :placeholder => 'Update cuisine name' %>
       <%= f.text_area :recipe, class: 'text-area', :placeholder => 'Update the recipies for this cuisine?' %>
-    </p>
-
-    <p>
+      <%= f.collection_check_boxes :tag_ids, @tags, :id, :name %>
       <%= f.submit :class =>'btn btn-primary'  %>
-    </p>
-
     <% end %>
 
     <%= link_to 'Back', cuisines_path, :class => 'btn btn-primary'%>

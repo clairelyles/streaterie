@@ -60,8 +60,19 @@ body {
 
 .text-area {
   height: 25vh;
-  width: 40vw;
+  width: 50vw;
   border-radius: 5px;
+}
+
+input.form-control {
+  border-radius: 30px;
+  padding-left: 15px;
+  background-color: #fff;
+  color: #000;
+}
+
+.form-control::-webkit-input-placeholder {
+  color: #000;
 }
 
 .img_container {
@@ -81,6 +92,10 @@ body {
 .glyphicon {
   /*color: #eb641e;*/
   color: #202a30;
+}
+
+.glyph-index{
+    color: #202a30;
   padding-top: 20px;
   padding-left: 15px;
   padding-right: 15px;
@@ -88,6 +103,10 @@ body {
 }
 
 /* ------ Navbar ------*/
+
+.search-bar {
+  margin-right:  10px;
+}
 
 .navbar {
   background: #202a30;
@@ -160,12 +179,12 @@ li.nav-item a:hover {
   color: #000;
   background-color: #eb641e;
   border-color: #000;
-  padding-top: 10px;
-  padding-right: 20px;
-  padding-bottom: 10px;
-  padding-left: 20px;
-  margin: 5px;
-  border-radius: 5px;
+  padding-top: 6px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  margin: 3px;
+  border-radius: 25px;
 }
 
 .btn-primary:hover,

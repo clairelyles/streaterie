@@ -1,6 +1,9 @@
 <div class='content'>
   <h2><%= @cuisine.name %> Street Food</h2>
-  <p><strong>Related Recipies:</strong><%= @cuisine.recipe %></p>
+  <p><span class='glyphicon glyphicon-tags'></span>
+    <% @cuisine.tags.each do |tag|%>
+      <%= link_to tag.name, tag_path(tag.name) %>
+    <% end %></p>
   <br />
   <div class='text-center'>
     <% @results.each do |photo| %>

@@ -1,22 +1,20 @@
 <div class='content'>
   <h2>Add new!</h2>
 
-  <% if @cuisine.errors.any? %>
-    <% @cuisine.errors.full_messages.each do |err_message| %>
-      ! <%= err_message %><br>
-    <% end %>
-  <% end %>
+  <div class='row'>
+    <div class='col-md-4 form-field'>
+      <% if @cuisine.errors.any? %>
+        <% @cuisine.errors.full_messages.each do |err_message| %>
+          ! <%= err_message %><br>
+        <% end %>
+      <% end %>
 
-  <%= form_for @cuisine do |f| %>
-    <div class='form-group'>
-      <%= f.text_field :name, :placeholder => 'Cuisine type' %>
+      <%= bootstrap_form_for @cuisine do |f| %>
+          <%= f.text_field :name, :placeholder => 'Cuisine type' %>
+          <%= f.text_area :recipe, class: 'text-area', :placeholder => 'What are your favorite recipes from this region?' %>
+          <%= f.collection_check_boxes :tag_ids, @tags, :id, :name %>
+          <%= f.submit class: 'btn btn-primary' %>
+      <% end %>
     </div>
-    <div class='form-group'>
-      <%= f.text_area :recipe, class: 'text-area', :placeholder => 'What are your favorite recipes from this region?' %>
-    </div>
-
-    <p>
-      <%= f.submit class: 'btn btn-primary' %>
-    </p>
-  <% end %>
+  </div>
 </div>
