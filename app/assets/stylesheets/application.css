@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap-tagsinput
  */
 
 
@@ -41,6 +42,11 @@ body {
   font-size: 16px;
 }
 
+.form-text {
+  font-family: 'Open Sans', serif;
+  font-size: 16px;
+}
+
 .content {
   padding-top: 20px;
 }
@@ -58,21 +64,34 @@ body {
   border-radius: 5px;
 }
 
-.text-area {
+div.bootstrap-tagsinput {
+  width: 350px;
+  padding: 15px;
+  border: 1px solid #000;
+  border-radius: 15px;
+}
+
+textarea#cuisine_recipe.form-control.text-area {
   height: 25vh;
-  width: 50vw;
-  border-radius: 5px;
+  width: 350px;
+  border-radius: 25px;
+  padding-top: 15px;
+  padding-left: 10px;
+}
+
+span.tag.label-info {
+  background: #eb641e;
 }
 
 input.form-control {
-  border-radius: 30px;
+  border-radius: 25px;
   padding-left: 15px;
   background-color: #fff;
-  color: #000;
+  /*color: #000;*/
 }
 
 .form-control::-webkit-input-placeholder {
-  color: #000;
+  /*color: #000;*/
 }
 
 .img_container {
@@ -92,6 +111,8 @@ input.form-control {
 .glyphicon {
   /*color: #eb641e;*/
   color: #202a30;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .glyph-index{
@@ -176,9 +197,9 @@ li.nav-item a:hover {
 
 
 .btn-primary {
-  color: #000;
+  color: #fff;
   background-color: #eb641e;
-  border-color: #000;
+  border-color: #eb641e;
   padding-top: 6px;
   padding-right: 10px;
   padding-bottom: 5px;
@@ -262,6 +283,24 @@ fieldset[disabled] .btn-primary.active {
     background: white;
     cursor: inherit;
     display: block;
+}
+
+/* ------ Links --------- */
+ a:link {
+  color: #000;
+}
+a:visited {
+  color: #000;
+}
+a:hover {
+  color: #eb641e;
+  text-decoration: underline;
+}
+a:active {
+  color: #fff;
+}
+a {
+  color: fff;
 }
 
 /* ------ Display --------- */

@@ -10,9 +10,9 @@
       <% end %>
 
       <%= bootstrap_form_for @cuisine do |f| %>
-          <%= f.text_field :name, :placeholder => 'Cuisine type' %>
-          <%= f.text_area :recipe, class: 'text-area', :placeholder => 'What are your favorite recipes from this region?' %>
-          <%= f.collection_check_boxes :tag_ids, @tags, :id, :name %>
+          <%= f.text_field :name, class: 'form-text', :placeholder => 'Cuisine type' %>
+          <%= f.text_area :recipe, class: 'text-area form-text', :placeholder => 'What are your favorite recipes from this region?' %>
+          <%= f.text_field :tag_ids, :value => "", class: 'tag-cloud form-text', 'data-role'=>'tagsinput', :placeholder => '#Hashtags', hide_label: :true  %>
           <%= f.submit class: 'btn btn-primary' %>
       <% end %>
     </div>

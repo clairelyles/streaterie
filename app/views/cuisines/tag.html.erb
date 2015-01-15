@@ -16,7 +16,9 @@
     </div>
     <div class='col-md-5'>
       <% cuisine.tags.each do |tag| %>
-        <%= link_to tag.name, tag_path(tag.name) %>
+        <div class='tag-boarder'>
+          <%= link_to tag.name, tag_path(tag.name) %>
+        </div>
       <% end %>
     </div>
     <div class='col-md-2 text-center'><span class='glyphicon glyphicon-remove'></span></div>

@@ -21,10 +21,12 @@ class CuisinesController < ApplicationController
 
     if @cuisine.save
       @cuisine.tags.clear
-      tags = params[:cuisine][:tag_ids]
+      tags = params[:cuisine][:tag_ids].split(',')
+      # render json:tags
 
       tags.each do |tag|
-        @cuisine.tags << Tag.find(tag) unless tag.blank?
+        Tag.find_or_create_by(name: tag)
+        @cuisine.tags << Tag.find_by_name(tag) unless tag.blank?
       end
 
       flash[:success] = "Your cuisine has been added"
@@ -38,23 +40,26 @@ class CuisinesController < ApplicationController
 
   def update
     @cuisine = Cuisine.find(params[:id])
-    @cuisine.tags.clear
-    tags = params[:cuisine][:tag_ids]
-
-    tags.each do |tag|
-      @cuisine.tags << Tag.find(tag) unless tag.blank?
-    end
 
     if @cuisine.update(cuisine_params)
       redirect_to @cuisine
     else
       render 'edit'
     end
+
+    tags = params[:cuisine][:tag_ids].split(',')
+
+    @cuisine.tags.clear
+
+    tags.each do |tag|
+      @cuisine.tags << Tag.find_or_create_by(name: tag) unless tag.blank?
+    end
+
   end
 
   def edit
     @cuisine = Cuisine.find(params[:id])
-    @tags = Tag.all
+    @tags = @cuisine.tags
   end
 
   def show

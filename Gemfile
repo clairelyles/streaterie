@@ -31,6 +31,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'bootstrap_form'
 
+gem 'bootstrap-tagsinput-rails'
+
 group :development do
   gem 'pry-rails'
   gem 'quiet_assets'
