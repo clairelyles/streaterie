@@ -25,8 +25,7 @@ class CuisinesController < ApplicationController
       # render json:tags
 
       tags.each do |tag|
-        Tag.find_or_create_by(name: tag)
-        @cuisine.tags << Tag.find_by_name(tag) unless tag.blank?
+        @cuisine.tags << Tag.find_or_create_by(name: tag) unless tag.blank?
       end
 
       flash[:success] = "Your cuisine has been added"
