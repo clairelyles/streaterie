@@ -40,11 +40,11 @@
 
     <!-- Search Bar RH Side -->
      <form class="navbar-form navbar-right" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control search-bar" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
+      <%= form_tag results_path, :class=> "navbar-form navbar-right", :method => "get" do %>
+      <%= text_field_tag :text, nil, :class=> "form-control", :placeholder => "Browse street food" %>
+      <%= submit_tag "Search", :class=>'btn btn-primary', :name => nil %>
+      <% end %>
+
     </div>
   </nav>
 
