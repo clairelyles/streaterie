@@ -1,0 +1,10 @@
+<div class='content'>
+  <h2>Photos of "<%= @search %>"</h2>
+  <br />
+  <div class='text-center'>
+    <% @results.each do |photo| %>
+        <%= link_to image_tag(photo.first), photo.last %>
+    <% end %>
+  </div>
+</div>
+
