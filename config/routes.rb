@@ -20,6 +20,8 @@ Rails.application.routes.draw do
 
   get "cuisines/tag/:tag" => "cuisines#tag", as: :tag
 
+  get "cuisines/results" => "cuisines#result", as: :results
+
   resources :cuisines
   get '*path', to: 'application#not_found'
   # Example of named route that can be invoked with purchase_url(id: product.id)

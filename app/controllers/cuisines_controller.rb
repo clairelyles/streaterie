@@ -8,6 +8,15 @@ class CuisinesController < ApplicationController
     # flash[:notice] = "Welcome to the page"
   end
 
+  def result
+    @search = params[:text]
+    @list = flickr.photos.search :text => @search+' '+'street food', :sort => 'relevance'
+    @results = @list.map do |photo|
+      [FlickRaw.url_q(photo),
+      FlickRaw.url_c(photo)]
+    end
+  end
+
   def new
     @cuisine = Cuisine.new
     @tags = Tag.all
@@ -38,7 +47,7 @@ class CuisinesController < ApplicationController
   end
 
   def update
-    @cuisine = Cuisine.find(params[:id])
+    @cuisine = Cuisine.find(params[:id]) or not_found
 
     if @cuisine.update(cuisine_params)
       redirect_to @cuisine
@@ -57,12 +66,12 @@ class CuisinesController < ApplicationController
   end
 
   def edit
-    @cuisine = Cuisine.find(params[:id])
+    @cuisine = Cuisine.find(params[:id]) or not_found
     @tags = @cuisine.tags
   end
 
   def show
-    @cuisine = Cuisine.find_by_id(params[:id])
+    @cuisine = Cuisine.find_by_id(params[:id]) or not_found
     @tags = @cuisine.tags.map do |tag|
               tag.name+" "
             end
@@ -80,7 +89,7 @@ class CuisinesController < ApplicationController
   end
 
   def destroy
-    @cuisine = Cuisine.find_by_id(params[:id])
+    @cuisine = Cuisine.find_by_id(params[:id]) or not_found
     @cuisine.destroy
 
     redirect_to cuisines_path
@@ -88,7 +97,7 @@ class CuisinesController < ApplicationController
 
   # searching for a specific tag
   def tag
-      tag = Tag.find_by_name(params[:tag])
+      tag = Tag.find_by_name(params[:tag]) or not_found
       @cuisines = tag ? tag.cuisines : []
   end
 
